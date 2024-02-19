@@ -1,68 +1,214 @@
+/* REGION - CONFIG */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --app-font: 'Times New Roman', Times, serif;
 
+  /* colors */
+  --color-backgroud: #0E0033;
+
+  --color-purple: #7470fa;
+  --color-purple-900: #817efa;
+  --color-purple-800: #8f8cfb;
+  --color-purple-700: #9d9afb;
+  --color-purple-600: #aba9fc;
+  --color-purple-500: #b9b7fc;
+  --color-purple-400: #c7c5fd;
+  --color-purple-300: #d5d4fd;
+  --color-purple-200: #e3e2fe;
+  --color-purple-100: #f1f0fe;
+
+  --color-blue: #0079FF;
+  --color-blue-900: #1986ff;
+  --color-blue-800: #3293ff;
+  --color-blue-700: #4ca1ff;
+  --color-blue-600: #66aeff;
+  --color-blue-500: #7fbcff;
+  --color-blue-400: #99c9ff;
+  --color-blue-300: #b2d6ff;
+  --color-blue-200: #cce4ff;
+  --color-blue-100: #e5f1ff;
+
+  --color-green: #00dfa2;
+  --color-green-900: #19e2ab;
+  --color-green-800: #32e5b4;
+  --color-green-700: #4ce8bd;
+  --color-green: #66ebc7;
+  --color-green-500: #7fefd0;
+  --color-green-400: #99f2d9;
+  --color-green-300: #b2f5e3;
+  --color-green-200: #ccf8ec;
+  --color-green-100: #e5fbf5;
+
+  --color-rose: #ff0060;
+  --color-rose-900: #ff196f;
+  --color-rose-800: #ff327f;
+  --color-rose-700: #ff4c8f;
+  --color-rose-600: #ff669f;
+  --color-rose-500: #ff7faf;
+  --color-rose-400: #ff99bf;
+  --color-rose-300: #ffb2cf;
+  --color-rose-200: #ffccdf;
+  --color-rose-100: #ffe5ef;
+
+  --color-yellow: #f6fa70;
+  --color-yellow-900: #f6fa7e;
+  --color-yellow-800: #f7fb8c;
+  --color-yellow-700: #f8fb9a;
+  --color-yellow-600: #f9fca9;
+  --color-yellow-500: #fafcb7;
+  --color-yellow-400: #fbfdc5;
+  --color-yellow-300: #fcfdd4;
+  --color-yellow-200: #fdfee2;
+  --color-yellow-100: #fefef0;
+
+  --color-orange: #dfa200;
+  --color-orange-900: #e2ab19;
+  --color-orange-800: #e5b432;
+  --color-orange-700: #e8bd4c;
+  --color-orange-600: #ebc766;
+  --color-orange-500: #efd07f;
+  --color-orange-400: #f2d999;
+  --color-orange-300: #f5e3b2;
+  --color-orange-200: #f8eccc;
+  --color-orange-100: #fbf5e5;
+
+
+  --color-gray-1000: #000000;
+  --color-gray-900: #191919;
+  --color-gray-800: #323232;
+  --color-gray-700: #4c4c4c;
+  --color-gray-600: #666666;
+  --color-gray-500: #7f7f7f;
+  --color-gray-400: #999999;
+  --color-gray-300: #b2b2b2;
+  --color-gray-200: #cccccc;
+  --color-gray-100: #e5e5e5;
+  --color-white: #fff;
+
+  /* dimmensions */
+  --border-card: 1.8rem;
+  --padding-inner-card: 0.2rem;
+  --padding-inner-card-description: 1.8rem;
+  --border-inner-card: calc(var(--border-card) - 0.2rem);
+  
+  /* config */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
+  font-family: var(--app-font);
+  font-weight: 400;
+  line-height: 1.5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+/* ENDREGION - CONFIG */
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
+/* REGION - THEME */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+    --color-backgroud: #ffffff;
   }
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-backgroud: #0E0033;
+  }
+}
+/* ENDREGION - THEME */
+
+/* ENDREGION - SCROLL BAR */
+/* Width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--color-purple);
+  border-radius: 1rem;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-green); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-green-900); 
+}
+/* ENDREGION - SCROLL BAR */
+
+/* REGION - APP STYLES */
+.es-input-atom {
+  width: 100%;
+  display: inline-block;
+}
+
+.es-input-container {
+  background: var(--color-green);
+  background: linear-gradient(180deg, var(--color-green) 0%, var(--color-purple-400) 100%);
+  border-radius: var(--border-card);
+  padding: var(--padding-inner-card);
+  display: flex;
+}
+
+.es-input {
+  background-color: var(--color-backgroud);
+  color: var(--color-purple-200);
+  padding: 0.5rem;
+  border-radius: var(--border-inner-card);
+  border: none;
+  width: 100%;
+  text-align: center;
+  font-size: large;
+  font-family: var(--app-font);
+}
+
+.es-input:focus-visible {
+  outline: none;
+}
+
+.es-text-area-container {
+  background-color: var(--color-backgroud);
+  border-radius: var(--border-inner-card);
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.es-text-area {
+  background-color: var(--color-backgroud);
+  color: var(--color-purple-200);
+  font-size: large;
+  border: none;
+  margin: 1rem;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  resize: none;
+  font-family: var(--app-font);
+}
+
+.es-text-area:focus-visible {
+  outline: none;
+}
+
+.es-text {
+  color: var(--color-purple-500);
+}
+
+.es-label {
+  color: var(--color-purple-400);
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+
+/* ENDREGION - APP STYLES */

@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 
+import EsInputText from './components/atoms/es-input/es-input'
+import EsTextarea from './components/atoms/es-textarea/es-textarea'
+
 function App() {
   const [title, setTitle] = useState('')
 
@@ -8,20 +11,30 @@ function App() {
     setTitle(event.target.value);
   }
 
+  const [answer, setAnswer] = useState('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores aperiam, quidem corporis explicabo atque ipsum quis praesentium sapiente nisi magnam recusandae! Quia temporibus debitis rerum odio quae dolorum iste veniam.')
+
+  const handleAnswer = (event: any) => {
+    setAnswer(event.target.value);
+  }
+
   return (
     <>
       <div>
-        <h1 className='es-text'>Title</h1>
-        <span className='es-input-container'>
-          <input className='es-input' type="text" onChange={handleTitle}/>
-        </span>
+        <EsInputText
+          label="Title"
+          value={title}
+          onChange={handleTitle}
+          placeholder="Enter a subject..."
+        />
       </div>
-      
+
       <div>
-        <h1 className='es-text'>Answer</h1>
-        <span className='es-input-container'>
-          <textarea className='es-text-area' rows={10} spellCheck='false'></textarea>
-        </span>
+        <EsTextarea
+          label="Answer"
+          value={answer}
+          onChange={handleAnswer}
+          placeholder="Enter answer..."
+        />
       </div>
     </>
   )
