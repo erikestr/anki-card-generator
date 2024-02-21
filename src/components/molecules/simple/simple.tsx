@@ -2,15 +2,15 @@ import EsButton from '../../atoms/es-button/es-button';
 import EsInputText from '../../atoms/es-input/es-input';
 import EsTextarea from '../../atoms/es-textarea/es-textarea';
 
-const SimpleCard = ({ title, answer, setOnTitle, setOnAnswer, disabled, setOnClick }: any) => {
+const SimpleCard = ({ question, answer, description, setOnQuestion, setOnAnswer, setOnDescription, disabled, setOnClick }: any) => {
     return (
         <>
             <div>
                 <EsInputText
                     label="Title"
-                    value={title}
-                    onChange={setOnTitle}
-                    placeholder="Enter a subject..."
+                    value={question}
+                    onChange={setOnQuestion}
+                    placeholder="Enter a question..."
                 />
             </div>
 
@@ -20,6 +20,16 @@ const SimpleCard = ({ title, answer, setOnTitle, setOnAnswer, disabled, setOnCli
                     value={answer}
                     onChange={setOnAnswer}
                     placeholder="Enter answer..."
+                    spellCheck='false'
+                />
+            </div>
+
+            <div>
+                <EsTextarea
+                    label="Description"
+                    value={description}
+                    onChange={setOnDescription}
+                    placeholder="Enter desription..."
                     spellCheck='false'
                 />
             </div>

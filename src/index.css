@@ -1,6 +1,6 @@
 /* REGION - CONFIG */
 :root {
-  --app-font: 'Times New Roman', Times, serif;
+  --app-font: 'Trebuchet MS', sans-serif;
 
   /* colors */
   --color-backgroud: #0E0033;
@@ -216,12 +216,12 @@ body {
 
 .es-button {
   font-family: var(--app-font);
+  font-size: larger;
   background: var(--color-purple-800);
   background: linear-gradient(180deg, var(--color-purple-800) 0%, var(--color-purple-400) 100%);
   border-radius: var(--border-card);
   border: none;
-  padding: 0.4rem;
-  padding-inline: 4rem;
+  padding-block: 0.4rem;
   width: 100%;
   color: var(--color-gray-800);
   transition: background 0.3s ease-in-out;
@@ -238,6 +238,37 @@ body {
 
 .m-t-2 {
   margin-top: 2rem;
+}
+
+.es-code {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.es-top-left {
+  right: 0;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+}
+
+button {
+  border-radius: var(--border-card);
+  border: none;
+  background-color: var(--color-purple-900);
+  padding-inline: 1rem;
+  padding-block: 0.4rem;
+  width: 100%;
+}
+
+button:hover {
+  background-color: var(--color-purple);
+}
+
+button:active {
+  background-color: var(--color-green);
 }
 
 /* ENDREGION - APP STYLES */

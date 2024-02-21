@@ -1,41 +1,81 @@
 import { useState } from 'react'
 import './App.css'
 
-import EsInputText from './components/atoms/es-input/es-input'
-import EsTextarea from './components/atoms/es-textarea/es-textarea'
 import SimpleCard from './components/molecules/simple/simple'
+import EsTextView from './components/atoms/es-textview/es-textview'
+import BackTemplate from './util/template-generator/simple-template-back'
+import FrontTemplate from './util/template-generator/simple-template-front'
 
 function App() {
-  const [title, setTitle] = useState('')
+  const [question, setQuestion] = useState('Question #1')
+  const [answer, setAnswer] = useState('Answer #1')
+  const [description, setDescription] = useState('Description #1')
+  const [isGenerated, setIsGenerated] = useState(false)
+  const [isCopied, setIsCopied] = useState(false)
+  const [generatedQuestion, setGeneratedQuestion] = useState('')
+  const [generatedAnswer, setGeneratedAnswer] = useState('')
 
   const handleTitle = (event: any) => {
-    setTitle(event.target.value);
+    setQuestion(event.target.value);
   }
-
-  const [answer, setAnswer] = useState('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores aperiam, quidem corporis explicabo atque ipsum quis praesentium sapiente nisi magnam recusandae! Quia temporibus debitis rerum odio quae dolorum iste veniam.')
 
   const handleAnswer = (event: any) => {
     setAnswer(event.target.value);
   }
 
-  const handleGenerate = (event: any) => {
-    console.log('title', title);
-    console.log('title', title);
-    console.log('answer', answer);
+  const handleDescription = (event: any) => {
+    setDescription(event.target.value);
+  }
 
+  const handleGenerate = (event: any) => {
+    if (question && answer) {
+      const templateFrontCard = new FrontTemplate();
+      const templateBackCard = new BackTemplate();
+
+      const generatedQuestionText = templateFrontCard.generate(question);
+      const generatedAnswerText = templateBackCard.generate(answer, description);
+      
+      setGeneratedQuestion(generatedQuestionText);
+      setGeneratedAnswer(generatedAnswerText);
+    }
+  }
+
+  const handleOnCopy = (event: any) => {
+    setIsCopied(true)
+
+    setTimeout(() => {
+      setIsCopied(false)
+    }, 2000);
   }
 
   return (
     <>
       <div>
         <SimpleCard
-          title={title}
-          setOnTitle={handleTitle}
+          question={question}
+          setOnQuestion={handleTitle}
           answer={answer}
           setOnAnswer={handleAnswer}
+          description={description}
+          setOnDescription={handleDescription}
           disabled={false}
           setOnClick={handleGenerate} />
       </div>
+      
+
+      {generatedQuestion &&
+        (<EsTextView
+          code={generatedQuestion}
+          onCopy={handleOnCopy}
+          copied={isCopied} />)
+      }
+
+      {generatedAnswer &&
+        (<EsTextView
+          code={generatedAnswer}
+          onCopy={handleOnCopy}
+          copied={isCopied} />)
+      }
     </>
   )
 }
