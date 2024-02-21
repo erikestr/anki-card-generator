@@ -1,4 +1,4 @@
-const EsTextarea = ({ label, value, onChange, placeholder, ...props }: any) => {
+const EsTextarea = ({ label, value, onChange, placeholder, spellCheck, ...props }: any) => {
     return (
         <div className="es-input-atom">
             {label &&
@@ -6,7 +6,11 @@ const EsTextarea = ({ label, value, onChange, placeholder, ...props }: any) => {
             }
             <div className='es-input-container'>
                 <div className="es-text-area-container">
-                    <textarea className='es-text-area' rows={10} spellCheck='false'></textarea>
+                    <textarea
+                        className='es-text-area'
+                        spellCheck={spellCheck}
+                        value={value}
+                        onChange={onChange} />
                 </div>
             </div>
         </div>

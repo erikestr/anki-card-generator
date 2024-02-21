@@ -85,11 +85,11 @@
   --color-white: #fff;
 
   /* dimmensions */
-  --border-card: 1.8rem;
-  --padding-inner-card: 0.2rem;
+  --border-card: 0.6rem;
+  --padding-inner-card: 0.1rem;
   --padding-inner-card-description: 1.8rem;
-  --border-inner-card: calc(var(--border-card) - 0.2rem);
-  
+  --border-inner-card: calc(var(--border-card) - 0.1rem);
+
   /* config */
   color-scheme: light dark;
 
@@ -101,6 +101,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* ENDREGION - CONFIG */
 
 body {
@@ -115,11 +116,13 @@ body {
     --color-backgroud: #ffffff;
   }
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-backgroud: #0E0033;
   }
 }
+
 /* ENDREGION - THEME */
 
 /* ENDREGION - SCROLL BAR */
@@ -133,17 +136,18 @@ body {
   box-shadow: inset 0 0 5px var(--color-purple);
   border-radius: 1rem;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--color-green); 
+  background: var(--color-green);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-green-900); 
+  background: var(--color-green-900);
 }
+
 /* ENDREGION - SCROLL BAR */
 
 /* REGION - APP STYLES */
@@ -210,5 +214,30 @@ body {
   font-weight: bold;
 }
 
+.es-button {
+  font-family: var(--app-font);
+  background: var(--color-purple-800);
+  background: linear-gradient(180deg, var(--color-purple-800) 0%, var(--color-purple-400) 100%);
+  border-radius: var(--border-card);
+  border: none;
+  padding: 0.4rem;
+  padding-inline: 4rem;
+  width: 100%;
+  color: var(--color-gray-800);
+  transition: background 0.3s ease-in-out;
+}
+
+.es-button:hover {
+  background: var(--color-purple-400);
+  background: linear-gradient(180deg, var(--color-purple-400) 0%, var(--color-green-400) 100%);
+}
+
+.m-t-1 {
+  margin-top: 1rem;
+}
+
+.m-t-2 {
+  margin-top: 2rem;
+}
 
 /* ENDREGION - APP STYLES */
