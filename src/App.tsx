@@ -10,9 +10,9 @@ function App() {
   const [question, setQuestion] = useState('Question #1')
   const [answer, setAnswer] = useState('Answer #1')
   const [description, setDescription] = useState('Description #1')
-  const [isGenerated, setIsGenerated] = useState(false)
-  const [isCopied, setIsCopied] = useState(false)
+  const [isCopiedAnswer, setIsCopiedAnswer] = useState(false)
   const [generatedQuestion, setGeneratedQuestion] = useState('')
+  const [isCopiedQuestion, setIsCopiedQuestion] = useState(false)
   const [generatedAnswer, setGeneratedAnswer] = useState('')
 
   const handleTitle = (event: any) => {
@@ -40,11 +40,19 @@ function App() {
     }
   }
 
-  const handleOnCopy = (event: any) => {
-    setIsCopied(true)
+  const handleOnCopyQquestion = (event: any) => {
+    setIsCopiedQuestion(true)
 
     setTimeout(() => {
-      setIsCopied(false)
+      setIsCopiedQuestion(false)
+    }, 2000);
+  }
+
+  const handleOnCopyAnswer = (event: any) => {
+    setIsCopiedAnswer(true)
+
+    setTimeout(() => {
+      setIsCopiedAnswer(false)
     }, 2000);
   }
 
@@ -66,15 +74,15 @@ function App() {
       {generatedQuestion &&
         (<EsTextView
           code={generatedQuestion}
-          onCopy={handleOnCopy}
-          copied={isCopied} />)
+          onCopy={handleOnCopyQquestion}
+          copied={isCopiedQuestion} />)
       }
 
       {generatedAnswer &&
         (<EsTextView
           code={generatedAnswer}
-          onCopy={handleOnCopy}
-          copied={isCopied} />)
+          onCopy={handleOnCopyAnswer}
+          copied={isCopiedAnswer} />)
       }
     </>
   )
