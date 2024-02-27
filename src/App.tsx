@@ -5,6 +5,8 @@ import SimpleCard from './components/molecules/simple/simple'
 import EsTextView from './components/atoms/es-textview/es-textview'
 import BackTemplate from './util/template-generator/simple-template-back'
 import FrontTemplate from './util/template-generator/simple-template-front'
+import { Editor } from '@monaco-editor/react'
+import EsCodeEditor from './components/atoms/es-code-editor/es-code-editor'
 
 function App() {
   const [question, setQuestion] = useState('Question #1')
@@ -34,7 +36,7 @@ function App() {
 
       const generatedQuestionText = templateFrontCard.generate(question);
       const generatedAnswerText = templateBackCard.generate(answer, description);
-      
+
       setGeneratedQuestion(generatedQuestionText);
       setGeneratedAnswer(generatedAnswerText);
     }
@@ -58,7 +60,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='w-80'>
         <SimpleCard
           question={question}
           setOnQuestion={handleTitle}
@@ -68,22 +70,23 @@ function App() {
           setOnDescription={handleDescription}
           disabled={false}
           setOnClick={handleGenerate} />
+
+        {generatedQuestion &&
+          (<EsTextView
+            code={generatedQuestion}
+            onCopy={handleOnCopyQquestion}
+            copied={isCopiedQuestion} />)
+        }
+
+        {generatedAnswer &&
+          (<EsTextView
+            code={generatedAnswer}
+            onCopy={handleOnCopyAnswer}
+            copied={isCopiedAnswer} />)
+        }
+
+        <EsCodeEditor />
       </div>
-      
-
-      {generatedQuestion &&
-        (<EsTextView
-          code={generatedQuestion}
-          onCopy={handleOnCopyQquestion}
-          copied={isCopiedQuestion} />)
-      }
-
-      {generatedAnswer &&
-        (<EsTextView
-          code={generatedAnswer}
-          onCopy={handleOnCopyAnswer}
-          copied={isCopiedAnswer} />)
-      }
     </>
   )
 }

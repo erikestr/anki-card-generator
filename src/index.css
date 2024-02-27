@@ -254,6 +254,10 @@ body {
   width: 100%;
 }
 
+.w-80 {
+  width: 80vh !important;
+}
+
 button {
   border-radius: var(--border-card);
   border: none;
