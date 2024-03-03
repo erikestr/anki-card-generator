@@ -85,7 +85,7 @@ function App() {
             copied={isCopiedAnswer} />)
         }
 
-        <EsCodeEditor />
+        {/* <EsCodeEditor /> */}
       </div>
     </>
   )
